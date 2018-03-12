@@ -1,9 +1,10 @@
 require 'sinatra'
-
+require './lib/link'
 class Bookmark < Sinatra::Base
 
   get '/' do
-    "hello world"
+    @links = Link.new().all
+    erb(:view_links)
   end
 
 end
