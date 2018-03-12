@@ -1,6 +1,6 @@
 require 'pg'
-require './env'
+require './../env'
 
 conn = PG.connect dbname: DB_NAME
 
-conn.exec "DELETE FROM friends.test"
+conn.exec "DELETE FROM #{SCHEMA}.#{TABLE}"

@@ -20,10 +20,10 @@ arr.each { |elem|
 }
 
 require 'pg'
-require './env'
+require './../env'
 
 conn = PG.connect dbname: DB_NAME
 
 arr2.each { |person|
-  conn.exec "INSERT INTO friends.test VALUES ('#{person[0]}','#{person[1]}')"
+  conn.exec "INSERT INTO #{SCHEMA}.#{TABLE} VALUES ('#{person[0]}','#{person[1]}')"
 }
